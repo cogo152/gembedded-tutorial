@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.comert</groupId>
+    <artifactId>gembedded-tutorial</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <repositories>
+        <repository>
+            <id>cogo152-gproject</id>
+            <url>https://packagecloud.io/cogo152/gproject/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <properties>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <gembedded.version>1.0.0-SNAPSHOT</gembedded.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.comert</groupId>
+            <artifactId>gembedded-api</artifactId>
+            <version>${gembedded.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.comert</groupId>
+            <artifactId>gembedded-provider</artifactId>
+            <version>${gembedded.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.comert</groupId>
+            <artifactId>gembedded-native</artifactId>
+            <version>${gembedded.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.comert</groupId>
+            <artifactId>gembedded-component</artifactId>
+            <version>${gembedded.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <defaultGoal>clean install</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>tutorial.Tutorial</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
